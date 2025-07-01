@@ -6,7 +6,7 @@
   <title>My Gorgeous Wife</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
@@ -14,37 +14,37 @@
     }
 
     .container {
-      padding: 20px;
       text-align: center;
+      padding: 10px;
     }
 
     h2 {
       color: hotpink;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
     }
 
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
+      align-items: center;
     }
 
     .gallery img {
       width: 100%;
-      max-width: 160px;
+      height: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
     }
 
     .btn-container {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .btn {
-      padding: 10px 20px;
+      padding: 10px 25px;
       background-color: hotpink;
       color: white;
       font-weight: bold;
