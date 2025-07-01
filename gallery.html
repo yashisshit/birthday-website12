@@ -16,9 +16,6 @@
     .container {
       padding: 20px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
 
     h2 {
@@ -32,18 +29,21 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      flex-grow: 1;
+      margin-bottom: 20px;
     }
 
     .gallery img {
       width: 100%;
-      max-width: 220px;
+      max-width: 160px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    .btn-container {
+      margin-top: 10px;
+    }
+
     .btn {
-      margin-top: 15px;
       padding: 10px 20px;
       background-color: hotpink;
       color: white;
@@ -71,7 +71,9 @@
       <img src="gif3.gif" alt="GIF 3">
     </div>
 
-    <button class="btn" onclick="clickEffect(); goNext();">Next</button>
+    <div class="btn-container">
+      <button class="btn" onclick="clickEffect(); goNext();">Next</button>
+    </div>
   </div>
 
   <script>
