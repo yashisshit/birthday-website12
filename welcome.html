@@ -70,12 +70,17 @@
     }
 
     function goNext() {
-      try {
-        parent.siteFrame.location.href = 'gallery.html';
-      } catch (e) {
-        window.location.href = 'gallery.html';
-      }
-    }
+  try {
+    // Start the music via iframe
+    parent.frames['music-frame'].postMessage("playMusic", "*");
+    
+    // Then go to gallery
+    parent.siteFrame.location.href = 'gallery.html';
+  } catch (e) {
+    window.location.href = 'gallery.html';
+  }
+}
+
   </script>
 </body>
 </html>
