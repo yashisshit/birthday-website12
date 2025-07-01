@@ -50,11 +50,11 @@
   <div class="container welcome">
     <h1>Hiiii&nbsp;Babyyy&nbsp;👋🏻</h1>
     <p>Ready for a little surprise? 💝</p>
-    <button class="btn" onclick="clickEffect(); goNext();">Let's go! 🎉</button>
+    <button class="btn" onclick="clickEffect(); playRecordingAndGo()">Let's go! 🎉</button>
   </div>
 
-  <!-- Music iframe (invisible) -->
-  <iframe src="music.html" allow="autoplay" name="music-frame" id="music-frame" style="display:none;"></iframe>
+  <!-- Invisible iframe for rec audio -->
+  <iframe src="audio.html" allow="autoplay" name="audio-frame" id="audio-frame" style="display:none;"></iframe>
 
   <script>
     function clickEffect() {
@@ -62,20 +62,22 @@
       new Audio("click.mp3").play();
     }
 
-    function goNext() {
-      // Send play signal to music.html via postMessage
+    function playRecordingAndGo() {
+      // Tell audio.html to play rec.mp3
       try {
-        parent.frames['music-frame'].postMessage("playMusic", "*");
+        parent.frames['audio-frame'].postMessage("playRec", "*");
       } catch (e) {
-        console.warn("Could not send message to music iframe.");
+        console.warn("Could not message audio iframe.");
       }
 
-      // Then go to next page
-      try {
-        parent.siteFrame.location.href = 'welcome.html';
-      } catch (e) {
-        window.location.href = 'welcome.html';
-      }
+      // Delay navigation slightly to let recording play
+      setTimeout(() => {
+        try {
+          parent.siteFrame.location.href = 'welcome.html';
+        } catch (e) {
+          window.location.href = 'welcome.html';
+        }
+      }, 500); // Adjust delay if needed
     }
   </script>
 
