@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome My Sweet Girl 💕</title>
   <link rel="stylesheet" href="style.css"/>
-
   <style>
     body, html {
       margin: 0;
@@ -53,28 +52,21 @@
     <button class="btn" onclick="handleClick()">Let's go! 🎉</button>
   </div>
 
-  <!-- Hidden music iframe -->
-  <iframe src="music.html" allow="autoplay" name="music-frame" id="music-frame" style="display:none;"></iframe>
-
   <script>
     function handleClick() {
       clickEffect();
-      playRecording();
-
-      // Delay navigation until recording has started
-      setTimeout(() => {
-        try {
-          parent.siteFrame.location.href = 'welcome.html';
-        } catch (e) {
-          window.location.href = 'welcome.html';
-        }
-      }, 500); // slightly longer to let recording begin
+      try {
+        localStorage.setItem("playRecording", "true");
+        parent.siteFrame.location.href = 'welcome.html';
+      } catch (e) {
+        window.location.href = 'welcome.html';
+      }
     }
 
     function clickEffect() {
       if (navigator.vibrate) navigator.vibrate(80);
       new Audio("click.mp3").play();
     }
-
-    function playRecording() {
-      const voice = new A
+  </script>
+</body>
+</html>
