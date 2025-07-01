@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harshita's Surprise 🎉</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    #site-frame {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+
+    #music-frame {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hidden iframe for persistent background music -->
+  <iframe src="music.html" id="music-frame" allow="autoplay" name="music-frame"></iframe>
+
+  <!-- Main site iframe: now correctly points to intro.html -->
+  <iframe src="intro.html" id="site-frame" name="siteFrame"></iframe>
+</body>
+</html>

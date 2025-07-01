@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Background Music</title>
+</head>
+<body style="margin:0; padding:0; overflow:hidden;">
+  <audio id="bgmusic" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Wait for message from main site
+    window.addEventListener("message", (event) => {
+      if (event.data === "playMusic") {
+        const audio = document.getElementById("bgmusic");
+
+        // Attempt to play audio if not already playing
+        if (audio.paused) {
+          audio.play().catch((err) => {
+            console.warn("Music play blocked until user interaction:", err);
+          });
+        }
+      }
+    });
+
+    // Mobile support: allow touch to unlock audio
+    document.addEventListener("click", () => {
+      const audio = document.getElementById("bgmusic");
+      if (audio.paused) audio.play().catch(() => {});
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Gorgeous Wife</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #fffafc;
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h2 {
+      color: hotpink;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      flex-grow: 1;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: hotpink;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>
+      Take a look at how absolutely stunning you are,<br>
+      especially those wavy hair of yours.... 🤌🏻✨<br><br>
+      My favourite photos/clips of you 👇🏻👇🏻😁😁
+    </h2>
+
+    <div class="gallery">
+      <img src="photo1.jpg" alt="Photo 1">
+      <img src="photo4.jpg" alt="Photo 4">
+      <img src="gif1.gif" alt="GIF 1">
+      <img src="gif2.gif" alt="GIF 2">
+      <img src="gif3.gif" alt="GIF 3">
+    </div>
+
+    <button class="btn" onclick="clickEffect(); goNext();">Next</button>
+  </div>
+
+  <script>
+    function clickEffect() {
+      if (navigator.vibrate) navigator.vibrate(80);
+      new Audio("click.mp3").play();
+    }
+
+    function goNext() {
+      try {
+        parent.siteFrame.location.href = 'gift.html';
+      } catch (e) {
+        window.location.href = 'gift.html';
+      }
+    }
+  </script>
+  <script src="click.js"></script>
+</body>
+</html>

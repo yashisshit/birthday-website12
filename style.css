@@ -1,0 +1,70 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.container {
+  text-align: center;
+  padding: 20px;
+}
+h1, h2 {
+  color: #ff1493;
+}
+p, input, textarea {
+  color: #333;
+  font-size: 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff69b4;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+.gallery img {
+  width: 80%;
+  max-width: 300px;
+  margin: 10px;
+  border-radius: 15px;
+}
+input, textarea {
+  width: 90%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: #ff1493;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+/* Center the welcome screen content */
+body.index-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1 {
+  font-size: 32px; /* or 28px if still too big */
+  text-align: center;
+  margin: 20px auto;
+}

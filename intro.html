@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome My Sweet Girl 💕</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      background-color: #fffdfd;
+    }
+
+    .container.welcome {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -25%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: hotpink;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: hotpink;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body class="index-page">
+  <div class="container welcome">
+    <h1>Hiiii&nbsp;Babyyy&nbsp;👋🏻</h1>
+    <p>Ready for a little surprise? 💝</p>
+    <button class="btn" onclick="clickEffect(); goNext();">Let's go! 🎉</button>
+  </div>
+
+  <!-- Music iframe (invisible) -->
+  <iframe src="music.html" allow="autoplay" name="music-frame" id="music-frame" style="display:none;"></iframe>
+
+  <script>
+    function clickEffect() {
+      if (navigator.vibrate) navigator.vibrate(80);
+      new Audio("click.mp3").play();
+    }
+
+    function goNext() {
+      // Send play signal to music.html via postMessage
+      try {
+        parent.frames['music-frame'].postMessage("playMusic", "*");
+      } catch (e) {
+        console.warn("Could not send message to music iframe.");
+      }
+
+      // Then go to next page
+      try {
+        parent.siteFrame.location.href = 'welcome.html';
+      } catch (e) {
+        window.location.href = 'welcome.html';
+      }
+    }
+  </script>
+
+  <script src="click.js"></script>
+</body>
+</html>

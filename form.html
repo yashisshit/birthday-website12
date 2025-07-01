@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Claim Your Gift</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    form input,
+    form textarea {
+      margin: 8px 0;
+      padding: 10px;
+      width: 90%;
+      max-width: 350px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button.btn {
+      margin-top: 12px;
+      padding: 10px 20px;
+      border: none;
+      background-color: hotpink;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    h2 {
+      color: hotpink;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📦 Claim Your Gift 📦</h2>
+    <form action="https://formsubmit.co/yashsonwani209@gmail.com" method="POST" onsubmit="clickEffect()">
+      <!-- Hidden fields -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://thankyou.com">
+
+      <!-- Visible fields -->
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="Main/Street Address" placeholder="Street" required>
+      <input type="text" name="city" placeholder="City" required>
+      <input type="text" name="pincode" placeholder="Pincode" required>
+      <textarea name="note" placeholder="Anything you want to say?"></textarea>
+
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="click.js"></script>
+</body>
+</html>
