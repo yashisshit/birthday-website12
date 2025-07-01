@@ -17,9 +17,9 @@
 
     .container.welcome {
       position: absolute;
-      top: 25%;
+      top: 20%;
       left: 50%;
-      transform: translate(-50%, -25%);
+      transform: translate(-50%, -20%);
       text-align: center;
     }
 
@@ -46,15 +46,15 @@
     }
   </style>
 </head>
-<body class="index-page">
+<body>
   <div class="container welcome">
     <h1>Hiiii&nbsp;Babyyy&nbsp;👋🏻</h1>
     <p>Ready for a little surprise? 💝</p>
-    <button class="btn" onclick="clickEffect(); playRecordingAndGo()">Let's go! 🎉</button>
+    <button class="btn" onclick="clickEffect(); playRecording(); goNext();">Let's go! 🎉</button>
   </div>
 
-  <!-- Invisible iframe for rec audio -->
-  <iframe src="audio.html" allow="autoplay" name="audio-frame" id="audio-frame" style="display:none;"></iframe>
+  <!-- Hidden music iframe -->
+  <iframe src="music.html" allow="autoplay" name="music-frame" id="music-frame" style="display:none;"></iframe>
 
   <script>
     function clickEffect() {
@@ -62,25 +62,22 @@
       new Audio("click.mp3").play();
     }
 
-    function playRecordingAndGo() {
-      // Tell audio.html to play rec.mp3
-      try {
-        parent.frames['audio-frame'].postMessage("playRec", "*");
-      } catch (e) {
-        console.warn("Could not message audio iframe.");
-      }
+    function playRecording() {
+      const voice = new Audio("recording.mp3");
+      voice.play().catch((err) => {
+        console.warn("Recording blocked by browser:", err);
+      });
+    }
 
-      // Delay navigation slightly to let recording play
+    function goNext() {
       setTimeout(() => {
         try {
           parent.siteFrame.location.href = 'welcome.html';
         } catch (e) {
           window.location.href = 'welcome.html';
         }
-      }, 500); // Adjust delay if needed
+      }, 200); // slight delay so recording has time to start
     }
   </script>
-
-  <script src="click.js"></script>
 </body>
 </html>
