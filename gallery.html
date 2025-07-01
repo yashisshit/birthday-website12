@@ -29,8 +29,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2px; /* super tight gap between images */
-      margin-bottom: 10px; /* small bottom space */
+      gap: 2px; /* tight spacing between images */
+      margin-bottom: 5px;
     }
 
     .gallery img {
@@ -43,10 +43,9 @@
     }
 
     .btn-container {
-      margin-top: 6px;
-      padding-bottom: 25px; /* just enough to make button fully visible */
       display: flex;
       justify-content: center;
+      margin-top: 6px;
     }
 
     .btn {
@@ -58,6 +57,10 @@
       border-radius: 10px;
       cursor: pointer;
       font-size: 1.1rem;
+    }
+
+    .spacer {
+      height: 40px; /* pushes button up from bottom of screen */
     }
   </style>
 </head>
@@ -80,6 +83,9 @@
     <div class="btn-container">
       <button class="btn" onclick="clickEffect(); goNext();">Next</button>
     </div>
+
+    <!-- Invisible spacer to push button up -->
+    <div class="spacer"></div>
   </div>
 
   <script>
