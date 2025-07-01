@@ -55,10 +55,15 @@
   <script>
     function handleClick() {
       clickEffect();
+
+      // Set a flag so welcome page knows to play recording
       try {
         localStorage.setItem("playRecording", "true");
+
+        // Navigate inside iframe
         parent.siteFrame.location.href = 'welcome.html';
       } catch (e) {
+        // Fallback navigation
         window.location.href = 'welcome.html';
       }
     }
