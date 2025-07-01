@@ -27,7 +27,18 @@
   <!-- Hidden iframe for persistent background music -->
   <iframe src="music.html" id="music-frame" allow="autoplay" name="music-frame"></iframe>
 
-  <!-- Main site iframe: now correctly points to intro.html -->
+  <!-- Main site iframe -->
   <iframe src="intro.html" id="site-frame" name="siteFrame"></iframe>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const loadPage = params.get("load");
+      if (loadPage) {
+        const frame = document.getElementById("site-frame");
+        frame.src = loadPage;
+      }
+    });
+  </script>
 </body>
 </html>
