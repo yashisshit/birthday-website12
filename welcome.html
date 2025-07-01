@@ -65,12 +65,12 @@
 
   <script src="click.js"></script>
   <script>
-    // Play voice recording ONLY if URL contains ?playRecording
+    // Check localStorage flag and play recording if needed
     window.addEventListener("DOMContentLoaded", () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.has("playRecording")) {
+      if (localStorage.getItem("playRecording") === "true") {
         const voice = new Audio("recording.mp3");
         voice.play().catch(err => console.warn("Recording blocked:", err));
+        localStorage.removeItem("playRecording");
       }
     });
 
