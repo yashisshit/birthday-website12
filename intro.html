@@ -12,7 +12,7 @@
       padding: 0;
       height: 100%;
       font-family: sans-serif;
-      background-color: #fffdfd;
+      background: linear-gradient(to bottom right, #ffe0f0, #fffdfd);
     }
 
     .container.welcome {
@@ -50,34 +50,31 @@
   <div class="container welcome">
     <h1>Hiiii&nbsp;Babyyy&nbsp;👋🏻</h1>
     <p>Ready for a little surprise? 💝</p>
-    <button class="btn" onclick="clickEffect(); playRecording(); goNext();">Let's go! 🎉</button>
+    <button class="btn" onclick="handleClick()">Let's go! 🎉</button>
   </div>
 
   <!-- Hidden music iframe -->
   <iframe src="music.html" allow="autoplay" name="music-frame" id="music-frame" style="display:none;"></iframe>
 
   <script>
-    function clickEffect() {
-      if (navigator.vibrate) navigator.vibrate(80);
-      new Audio("click.mp3").play();
-    }
+    function handleClick() {
+      clickEffect();
+      playRecording();
 
-    function playRecording() {
-      const voice = new Audio("recording.mp3");
-      voice.play().catch((err) => {
-        console.warn("Recording blocked by browser:", err);
-      });
-    }
-
-    function goNext() {
+      // Delay navigation until recording has started
       setTimeout(() => {
         try {
           parent.siteFrame.location.href = 'welcome.html';
         } catch (e) {
           window.location.href = 'welcome.html';
         }
-      }, 200); // slight delay so recording has time to start
+      }, 500); // slightly longer to let recording begin
     }
-  </script>
-</body>
-</html>
+
+    function clickEffect() {
+      if (navigator.vibrate) navigator.vibrate(80);
+      new Audio("click.mp3").play();
+    }
+
+    function playRecording() {
+      const voice = new A
