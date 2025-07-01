@@ -11,6 +11,7 @@
       padding: 0;
       font-family: sans-serif;
       background-color: #fffdfd;
+      background-image: linear-gradient(145deg, #ffe6f0, #fff0f5);
     }
 
     .container {
@@ -18,7 +19,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 80vh; /* less than 100 to push it up */
+      height: 80vh;
       text-align: center;
       padding: 0 20px;
     }
@@ -64,23 +65,28 @@
 
   <script src="click.js"></script>
   <script>
+    // Play voice recording ONLY if URL contains ?playRecording
+    window.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has("playRecording")) {
+        const voice = new Audio("recording.mp3");
+        voice.play().catch(err => console.warn("Recording blocked:", err));
+      }
+    });
+
     function clickEffect() {
       if (navigator.vibrate) navigator.vibrate(80);
       new Audio("click.mp3").play();
     }
 
     function goNext() {
-  try {
-    // Start the music via iframe
-    parent.frames['music-frame'].postMessage("playMusic", "*");
-    
-    // Then go to gallery
-    parent.siteFrame.location.href = 'gallery.html';
-  } catch (e) {
-    window.location.href = 'gallery.html';
-  }
-}
-
+      try {
+        parent.frames['music-frame'].postMessage("playMusic", "*");
+        parent.siteFrame.location.href = 'gallery.html';
+      } catch (e) {
+        window.location.href = 'gallery.html';
+      }
+    }
   </script>
 </body>
 </html>
